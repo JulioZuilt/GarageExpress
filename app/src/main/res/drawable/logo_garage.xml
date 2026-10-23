@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Logo vectorial "Garage Express": llave inglesa + arco de velocidad.
+  Si quieres usar el logo real en PNG, pon tu archivo "logo_garage.png"
+  en esta misma carpeta (res/drawable) y Android usara ese.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="110dp"
+    android:viewportWidth="200"
+    android:viewportHeight="110">
+
+    <!-- Arco rojo de velocidad -->
+    <path
+        android:pathData="M30,66 C60,34 140,34 172,60"
+        android:strokeColor="#E10600"
+        android:strokeWidth="8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M58,56 C88,40 132,40 158,54"
+        android:strokeColor="#FF5A4D"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+
+    <!-- Llave inglesa (wrench) estilizada -->
+    <path
+        android:pathData="M70,86 l44,-30 a9,9 0 0 1 11,13 l-44,30 a9,9 0 0 1 -11,-13 z"
+        android:fillColor="#00E5D0" />
+    <path
+        android:pathData="M118,52 a11,11 0 1 0 0.1,0 l-6,6 5,7 -8,1 z"
+        android:fillColor="#00E5D0" />
+</vector>
