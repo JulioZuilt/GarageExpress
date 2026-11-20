@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.garageexpress.ui.home.HomeScreen
 import com.example.garageexpress.ui.login.LoginScreen
 import com.example.garageexpress.ui.login.LoginViewModel
 import com.example.garageexpress.ui.login.RegisterScreen
@@ -37,6 +38,22 @@ fun AppNav(
 
         composable("registro") {
             RegisterScreen(navController = navController, vmFactory = registerVmFactory)
+        }
+
+        composable(
+            route = "home/{username}/{rol}",
+            arguments = listOf(
+                navArgument("username") { type = NavType.StringType },
+                navArgument("rol") { type = NavType.StringType }
+            )
+        ) { backStackEntry ->
+            val username = backStackEntry.arguments?.getString("username") ?: ""
+            val rol = backStackEntry.arguments?.getString("rol") ?: "asistente"
+            HomeScreen(
+                navController = navController,
+                username = username,
+                rol = rol
+            )
         }
 
         composable(

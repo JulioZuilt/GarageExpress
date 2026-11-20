@@ -154,7 +154,7 @@ fun LoginScreen(
                     Button(
                         onClick = {
                             vm.submit { username, rol ->
-                                navController.navigate("productos/$username/$rol") {
+                                navController.navigate("home/$username/$rol") {
                                     popUpTo("login") { inclusive = true }
                                     launchSingleTop = true
                                 }
