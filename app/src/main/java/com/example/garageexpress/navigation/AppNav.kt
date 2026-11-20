@@ -18,13 +18,16 @@ import com.example.garageexpress.ui.producto.ProductoViewModel
 import com.example.garageexpress.ui.producto.MovimientoScreen
 import com.example.garageexpress.ui.producto.MovimientoViewModel
 import com.example.garageexpress.ui.producto.QrScannerScreen
+import com.example.garageexpress.ui.reposicion.ReposicionScreen
+import com.example.garageexpress.ui.reposicion.ReposicionViewModel
 
 @Composable
 fun AppNav(
     productoVmFactory: ProductoViewModel.Factory,
     movimientoVmFactory: MovimientoViewModel.Factory,
     loginVmFactory: LoginViewModel.Factory,
-    registerVmFactory: RegisterViewModel.Factory
+    registerVmFactory: RegisterViewModel.Factory,
+    reposicionVmFactory: ReposicionViewModel.Factory
 ) {
     val navController = rememberNavController()
 
@@ -92,6 +95,11 @@ fun AppNav(
             val id = backStackEntry.arguments?.getInt("productoId") ?: 0
             val movimientoVm: MovimientoViewModel = viewModel(factory = movimientoVmFactory)
             MovimientoScreen(navController = navController, vm = movimientoVm, productoId = id)
+        }
+
+        composable("reposicion") {
+            val reposicionVm: ReposicionViewModel = viewModel(factory = reposicionVmFactory)
+            ReposicionScreen(navController = navController, vm = reposicionVm)
         }
     }
 }

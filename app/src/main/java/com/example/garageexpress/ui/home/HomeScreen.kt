@@ -25,13 +25,9 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,7 +39,6 @@ import com.example.garageexpress.ui.theme.AmarilloAcento
 import com.example.garageexpress.ui.theme.CyanPrimario
 import com.example.garageexpress.ui.theme.NaranjaStockBajo
 import com.example.garageexpress.ui.theme.VerdeOk
-import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
@@ -52,8 +47,6 @@ fun HomeScreen(
     rol: String
 ) {
     val rolBonito = if (rol.lowercase() == "admin") "Administrador" else "Asistente del Taller"
-    val snackbarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -198,15 +191,9 @@ fun HomeScreen(
                 icono = Icons.Default.ShoppingCart,
                 colorIcono = NaranjaStockBajo,
                 onClick = {
-                    scope.launch {
-                        snackbarHostState.showSnackbar("Módulo de Reposición (Etapa 3)")
-                    }
+                    navController.navigate("reposicion")
                 }
             )
-
-            Spacer(Modifier.height(16.dp))
-
-            SnackbarHost(hostState = snackbarHostState)
         }
     }
 }
